@@ -30,7 +30,7 @@ class PresenceController extends Controller
 
         return response()->json([
             'base' => env('FRONT_URL') . "?hash=",
-            'link' => env('FRONT_URL') . "?hash=" . $hash,
+            'full' => $request->get('name') . " - " .env('FRONT_URL') . "?hash=" . $hash,
             'hash' => $hash,
         ]);
     }
