@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  php_cha:
+    container_name: php_cha
+    build: .
+    restart: unless-stopped
+    volumes:
+      - ./../:/var/www/html:rw
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - cha
+
+  db:
+    container_name: db
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'cha'
+      MYSQL_PASSWORD: 'Ch@Revela#1'
+      MYSQL_ROOT_PASSWORD: 'Ch@Revela#2'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - vol-db:/var/lib/mysql
+
+networks:
+  cha:
+    driver: bridge
+
+volumes:
+  vol-db:
+  sail-redis:
+    driver: local
