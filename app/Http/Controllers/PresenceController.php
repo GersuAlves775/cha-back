@@ -29,8 +29,9 @@ class PresenceController extends Controller
             ]);
 
         return response()->json([
-            'message' => 'Convite gerado com sucesso',
-            'link' => env('FRONT_URL') . "?hash=" . $hash
+            'base' => env('FRONT_URL') . "?hash=",
+            'link' => env('FRONT_URL') . "?hash=" . $hash,
+            'hash' => $hash,
         ]);
     }
 
