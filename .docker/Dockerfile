@@ -11,4 +11,5 @@ RUN apt-get install -yq tzdata && \
 run apt update && apt-get install certbot -y && \
     apt-get install python3-certbot-apache -y
 
+RUN docker-php-ext-install pdo pdo_mysql
 RUN a2enmod rewrite
