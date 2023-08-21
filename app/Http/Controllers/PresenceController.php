@@ -28,11 +28,7 @@ class PresenceController extends Controller
                 'hash' => $hash
             ]);
 
-        return response()->json([
-            'base' => env('FRONT_URL') . "?hash=",
-            'full' => $request->get('name') . " - " .env('FRONT_URL') . "?hash=" . $hash,
-            'hash' => $hash,
-        ]);
+        return $request->get('name') . " - " .env('FRONT_URL') . "?hash=" . $hash;
     }
 
     public function vote(Request $request)
