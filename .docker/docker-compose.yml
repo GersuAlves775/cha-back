@@ -28,6 +28,8 @@ services:
       - '3306'
     volumes:
       - vol-db:/var/lib/mysql
+    networks:
+      - cha
 
 networks:
   cha:
